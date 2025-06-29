@@ -1,3 +1,4 @@
+
 # Front-End System Design Course
 
 This is a companion repository for the [Front-End System Design](https://frontendmasters.com/courses/frontend-system-design) course on Frontend Masters.
@@ -21,6 +22,7 @@ to the exercise go to the branch with `end` prefix.
 7. `5.3-property-model-and-loading-begin` - Defining a property model of Virtualized List
 8. `5.4-1-elements-pool-and-recycling-begin` - Introducing HTMLElement pool
 9. `5.4.2-elements-pool-and-recycling-rendering-begin` - Utilizing CSS Transformation to move elements around
+
 10. `5.5-top-observer-begin` - Handle top virtualization
 
 ## View All Exercises & Solutions
