@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Virtualization</title>
+    <title>Virtualisation</title>
     <link rel="stylesheet" href="../../../styles/index.css">
     <link rel="stylesheet" href="./virtualisation.css">
     <template id="card_template">
         <article class="card">
-            <h3 class="card__title"></h3>
+            <h3></h3>
             <div class="card__body">
                 <div class='card__body__image'></div>
                 <section class='card__body__content' contenteditable="true">
@@ -22,23 +22,26 @@
     import {VirtualList} from "./virtual-list.js";
     import {initMockDB} from "../../../utils/db.js";
     const container = document.body;
-    const template = document.getElementById('card_template')
-    const DB = initMockDB({title: 'Frontend System Design', body: 'Learning about virtualization'})
+        const DB = initMockDB({ title: 'Frontend System Design', body: 'Frontend System Design' });
+        const template = document.getElementById('card_template');
 
-    /**
-     * @param datum {{ title: string, body: string}}
-     * @param element {HTMLElement | null | undefined}
-     * @returns {HTMLElement}
-     */
-    function createOrUpdateCard(datum, element) {
-        return null;
+        const updateTemplate = (element, datum) => {
+            const [cardTitle] = element.getElementsByTagName("h3");
+            const [cardBody] = element.getElementsByTagName("section");
+            [cardTitle.textContent, cardBody.textContent] = [datum.title, datum.body];
+        }
+
+        const getTemplate = (datum) => {
+            const element = template.content.firstElementChild.cloneNode(true);
+            updateTemplate(element, datum)
+            return element;
     }
 
     const list = new VirtualList(container, {
-        getPage: null,
-        getTemplate: null,
-        pageSize: null,
-        updateTemplate: null
+        getPage: (p) => DB.getPage(p),
+        getTemplate,
+        updateTemplate,
+        pageSize: 10
     });
     list.render();
 </script>
